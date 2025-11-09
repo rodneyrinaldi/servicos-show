@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Widget Embedável (Simulação de Cliente)</title>
+    <style>
+        /* Estilos Padrão para Telas Maiores (Desktop/Tablet) */
+        body {
+            font-family: Arial, sans-serif;
+            /* Margem padrão para telas maiores */
+            margin: 40px; 
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            /* Padding padrão para telas maiores */
+            padding: 30px; 
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .widget-box {
+            border: 2px dashed #007bff;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 📱 Media Query para Telas Pequenas (Modo Celular) 📱 */
+        @media (max-width: 600px) {
+            /* Remove a margem do body para ocupar a largura total do viewport */
+            body {
+                margin: 0; 
+            }
+            /* Remove o max-width para telas muito pequenas e ajusta o padding */
+            .container {
+                max-width: 100%; /* Permite que o container se estenda */
+                margin: 0; /* Remove a margem automática */
+                padding: 15px; /* Reduz o padding horizontal (lateral) */
+                border-radius: 0; /* Opcional: remover borda arredondada para ocupar 100% da tela */
+                box-shadow: none; /* Opcional: remover sombra para um visual mais "nativo" no mobile */
+            }
+            /* Ajuste o padding do widget-box se necessário, mas 100% de largura já foi garantido pelo .container */
+            .widget-box {
+                 /* Reduz um pouco o padding interno da caixa para dar mais espaço ao iframe */
+                padding: 10px; 
+            }
+            
+             /* O iframe já estava com 100% de width, o que é ótimo. */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Site do Escritório Jurídico Exemplo</h1>
+        <p>Prezado cliente, use a ferramenta abaixo para verificar se existem comunicações judiciais disponíveis para sua OAB.</p>
+
+        <h2>Widget de Pesquisa Embedado (iFrame)</h2>
+
+        <div class="widget-box">
+            
+            <iframe 
+                src="https://servicos.adv.br/widget/embed" 
+                title="Task Pilot Search Widget"
+                ></iframe>
+            
+            <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                Widget fornecido pelo Task Pilot.
+            </p>
+        </div>
+        
+        <p style="margin-top: 40px; font-size: 0.9em; color: #666;">
+            <a
+                href="https://servicos.adv.br/pjenotifications-embed.html"
+                className="text-sm text-blue-600 hover:text-blue-800 underline transition-colors"
+                aria-label="Visualizar guia de integração do widget Task Pilot"
+            >
+                Guia de Integração
+            </a>
+        </p>
+
+        <p style="margin-top: 16px;">
+            Este é o restante do conteúdo da página do cliente. A pesquisa está totalmente isolada no iFrame.
+        </p>
+    </div>
+
+</body>
+</html>
